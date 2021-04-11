@@ -7,8 +7,8 @@ document.getElementById('test-button').addEventListener('click', function () {
 */
 
 const titleClickHandler = function (event) {
+    event.preventDefault();
     const clickedElement = this;
-    console.log('Link was clicked');
     console.log(event);
 
     /* [DONE] remove class 'active' from all article links  */
@@ -17,7 +17,7 @@ const titleClickHandler = function (event) {
         activeLink.classList.remove('active');
     }
 
-    /* [IN PROGRESS] add class 'active' to the clicked link */
+    /* [DONE] add class 'active' to the clicked link */
 
     console.log('clickedElement:', clickedElement);
     clickedElement.classList.add('active');
@@ -29,11 +29,19 @@ const titleClickHandler = function (event) {
         activeArticle.classList.remove('active');
     }
 
-    /* get 'href' attribute from the clicked link */
+    /* [DONE] get 'href' attribute from the clicked link */
+
+    const clickedLinkAttribute = clickedElement.getAttribute('href');
+    console.log(clickedLinkAttribute);
 
     /* find the correct article using the selector (value of 'href' attribute) */
 
+    const clickedArticle = document.querySelector(clickedLinkAttribute);
+    console.log(clickedArticle);
+
     /* add class 'active' to the correct article */
+
+    clickedArticle.classList.add('active');
 }
 
 const links = document.querySelectorAll('.titles a');
